@@ -1,0 +1,7 @@
+{
+  "name": "wagenlisten",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

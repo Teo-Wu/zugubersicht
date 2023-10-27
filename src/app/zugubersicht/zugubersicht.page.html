@@ -1,0 +1,72 @@
+<ion-content>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="top">
+        <ion-tab-button >
+          <ion-label>Start</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="zugauswahl" href="/zugauswahl">
+          <ion-label>Zurück</ion-label>
+        </ion-tab-button>
+        <ion-tab-button >
+          <ion-label>Wagen</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-buttons slot="start" size="big">
+      <ion-button (click)="editmode()">
+        <ion-icon  name="pencil" style="font-size: 2em;" alt="editmode"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" id="Zugübersicht">Zugübersicht</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-content color="light">
+    <ion-card>
+      <ion-list [inset]="true">
+        <ng-container *ngFor="let item of item">
+          <ion-item>
+            <ion-label class="label-big">{{ item.label }}</ion-label>
+            <ng-container *ngIf="!editing">
+              <ion-label *ngIf="!item.model" class="label-big" slot="end">{{ item.note }}</ion-label>
+              <ion-label *ngIf="item.model" class="label-big" slot="end">{{ item.model }}</ion-label>
+            </ng-container>
+            <ng-container *ngIf="editing">
+              <ion-input  [(ngModel)]="item.model"></ion-input>
+            </ng-container>
+          </ion-item>
+        </ng-container>
+      </ion-list>
+    </ion-card>
+
+  </ion-content>
+
+  <ion-title class="ion-text-left" id="Zugübersicht">Angaben zum Triebfahrzeug </ion-title>
+  <ion-content color="light">
+    <ion-card>
+      <ion-list [inset]="true">
+        <ng-container *ngFor="let item of item2">
+          <ion-item>
+            <ion-label class="label-big">{{ item.label }}</ion-label>
+            <ng-container *ngIf="!editing">
+              <ion-label *ngIf="!item.model" class="label-big" slot="end">{{ item.note }}</ion-label>
+              <ion-label *ngIf="item.model" class="label-big" slot="end">{{ item.model }}</ion-label>
+            </ng-container>
+            <ng-container *ngIf="editing">
+              <ion-input  [(ngModel)]="item.model"></ion-input>
+            </ng-container>
+          </ion-item>
+        </ng-container>
+      </ion-list>
+    </ion-card>
+
+  </ion-content>
+  

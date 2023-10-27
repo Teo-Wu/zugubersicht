@@ -1,0 +1,58 @@
+<ion-content>
+  <ion-toolbar>
+    <ion-tabs>
+      <ion-tab-bar slot="top">
+        <ion-tab-button >
+          <ion-label>Start</ion-label>
+        </ion-tab-button>
+        <ion-tab-button tab="zugubersicht" href="/zugubersicht">
+          <ion-label>Zurück</ion-label>
+        </ion-tab-button>
+        <ion-tab-button >
+          <ion-label>Wagen</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-buttons slot="start" size="big">
+      <ion-button (click)="editmode()">
+        <ion-icon  name="pencil" style="font-size: 2em;" alt="editmode"></ion-icon>
+      
+      </ion-button>
+    </ion-buttons>
+
+    <ion-title class="ion-text-center" id="Zugauswahl">Zugauswahl</ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-content color="light" >
+    <ion-card  href="/zugubersicht">
+    <ion-list [inset]="true">
+      <ion-item >
+        <ion-icon color="danger" slot="start" name="calendar-outline" size="large"></ion-icon>
+        <ion-label style="font-size: 1.5em;">Datum</ion-label>
+        <ion-label style="font-size: 1.5em;"slot="end">Zug-Nr.</ion-label>
+      </ion-item>
+      <ion-item >
+        <ion-label style="font-size: 1.5em;" label="Ort">Von:</ion-label>
+        <ion-input *ngIf="editing"></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-label style="font-size: 1.5em;" label="Ort">Nach:</ion-label>
+        <ion-input *ngIf="editing"></ion-input>
+      </ion-item>
+      <ion-item >
+        <ion-label style="font-size: 1.5em;" label="Name">Wagenprüfer: </ion-label>
+        <ion-input *ngIf="editing"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  </ion-content>
